@@ -3,15 +3,16 @@
 import { Session, createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import {GitHubIcon} from "./GitHubIcon"
 import "./GitHubIcon.css"
-import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 
-export default function AuthButton() {
-    const [sesion, setsesion] = useState<Session | null>(null)
+export default function AuthButton({session}: {session : Session | null}) {
+    // const [sesion, setsesion] = useState<Session | null>(null)
     const supabase = createClientComponentClient()
-
+    const router = useRouter()
+    console.log(session);
+    
     const handleSignIn = async () => {
-     
         await supabase.auth.signInWithOAuth({
             provider:"github",
             options:{
@@ -21,19 +22,12 @@ export default function AuthButton() {
     }
     const handleSignOut = async () =>{
         await supabase.auth.signOut()
+        router.refresh()
     }
-
-    useEffect(() => {
-      const getSesion = async () =>{
-        const {data} = await supabase.auth.getSession()
-        setsesion(data.session)
-      }
-      getSesion()
-    }, [])
       
   return (
     <div>
-        { sesion === null ?
+        { session === null ?
         <button className="button" onClick={handleSignIn}>
         <GitHubIcon/>
         Continue with Github
