@@ -10,7 +10,7 @@ export default function AuthButton({session}: {session : Session | null}) {
     // const [sesion, setsesion] = useState<Session | null>(null)
     const supabase = createClientComponentClient()
     const router = useRouter()
-    console.log(session);
+    // console.log(session);
     
     const handleSignIn = async () => {
         await supabase.auth.signInWithOAuth({
