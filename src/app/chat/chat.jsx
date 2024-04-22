@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
+import style from "./chat.module.css"
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -48,15 +49,19 @@ const Chat = () => {
   };
 
   return (
-    <div>
-      {messages.map(message => (
-        <div key={message.id} className="message">
-          {message.content}
-        </div>
-      ))}
-      <form onSubmit={handleMessageSubmit}>
+    <div className={style.container}>
+      <button className={style.closeButton}>cerrar</button>
+      <div className={style.messages}>
+        {messages.map(message => (
+          <div key={message.id} >
+            {message.content}
+          </div>
+        ))}
+      </div>
+      <form onSubmit={handleMessageSubmit} className={style.form}>
         <input
           type="text"
+          className={style.inputMessage}
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Type your message..."

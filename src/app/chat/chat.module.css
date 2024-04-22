@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    width: 350px;
+    height: 450px;
+    bottom: 0;
+    right: 0;
+    margin-right: 2em;
+    /* padding: 1em; */
+    border: 2px solid #242323;
+    border-radius: 25px 25px 0 0;
+}
+
+.form{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;  
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.inputMessage{
+    width: 100%;
+    outline:0;
+}
+
+.closeButton{
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    margin-bottom: 1em; 
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+.messages{
+    overflow:scroll;
+    overflow-x: hidden; 
+    overflow-y: auto;
+    padding: 1em;
+    background-color: #141414;
+}

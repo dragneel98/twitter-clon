@@ -3,6 +3,7 @@
 import { addPost } from '../actions/actions'
 import { useRef } from 'react'
 import CreatePostButton from './create-post-button'
+import style from "./create-post.module.css"
 
 export function CreatePost ({
   userAvatarUrl
@@ -22,7 +23,8 @@ export function CreatePost ({
       <textarea
         name='content'
         rows={4}
-        className='w-full text-xl bg-black placeholder-gray-500 p-2'
+        // className='w-full text-xl bg-black placeholder-gray-500 p-2'
+        className={style.textarea}
         placeholder='¡¿Qué está pasando!?'
       ></textarea>
         <CreatePostButton/>

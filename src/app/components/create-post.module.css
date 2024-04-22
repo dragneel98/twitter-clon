@@ -1,0 +1,6 @@
+.textarea{
+    resize: none;
+    field-sizing: content;
+    min-height: 50px;
+    max-height: 100px;
+}
