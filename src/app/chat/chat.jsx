@@ -50,7 +50,11 @@ const Chat = () => {
 
   return (
     <div className={style.container}>
-      <button className={style.closeButton}>cerrar</button>
+      <div className={style.closeButtonContainer}>
+        <p>Messages</p>
+        <button>Cerrar</button>
+      </div>
+
       <div className={style.messages}>
         {messages.map(message => (
           <div key={message.id} >
